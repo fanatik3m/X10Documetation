@@ -389,6 +389,30 @@
 
 ------------------------------------------------------------------------------------------
 
+#### Requesting access to regular profile's contacts
+
+<details>
+ <summary><code>GET</code>  <code>/api/v1/regular_profiles/</code> <code><b>{id}/</b></code> <code>get_contacts/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | id|  path| integer| telegram id of regular profile|
+
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `"Запрос успешно отправлен"` or `"Пользователь {id} уже предоставил вам доступ к своим контактам"`                                |
+> | `400x`         | `application/json`                | `{"detail": string}`          
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Updating regular profile by id
 
 <details>
