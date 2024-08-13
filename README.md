@@ -150,6 +150,30 @@
 
 ------------------------------------------------------------------------------------------
 
+#### Listing organizer profiles rating
+
+<details>
+ <summary><code>GET</code>  <code>api/v1/organizer_profiles/rating/</code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | page|  query string| integer| page to list|
+
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `[{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer, "name_field": string, "photo": string}]`                                |
+> | `400x`         | `application/json`                | `{"detail": string}`                                                      |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Updating organizer profiles
 
 <details>
@@ -501,7 +525,7 @@
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name": {"telegram_id": integer, "events_visited": integer, "games_visited": integer, "meetings_visited": integer, "wins": integer, "earned_coins": integer, "companies_bought": integer, "cards": array of integer}`                                |
+> | `200`         | `application/json`        | `[{"telegram_id": integer, "events_visited": integer, "games_visited": integer, "meetings_visited": integer, "wins": integer, "earned_coins": integer, "companies_bought": integer, "cards": array of integer, "name_field": string, "photo": string}]`                                |
 > | `400x`         | `application/json`                | `{"detail": string}`                                                      |
 
 </details>
