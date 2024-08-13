@@ -75,8 +75,172 @@
 </details>
 
 ------------------------------------------------------------------------------------------
+
+#### Creating telegram profile
+
+<details>
+ <summary><code>POST</code>  <code>api/v1/telegram_profiles/</code> <code><b>{id}/</b></code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | telegram_id|  request_body| integer   | id of telegram profile  |
+> | first_name|  request_body| string   | first name of telegram profile  |
+> | last_name|  request_body| string   | last name of telegram profile  |
+> |phone_number| request_body| string  | phone number of telegram profile
+> | avatar|  request_body| string (base64)   | avatar of telegram profile  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"telegram_id": integer, "first_name": string, "last_name": string, "username": string, "phone_number": string, "avatar": string}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                               |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+## Organizer profiles
+#### Listing organizer profiles
+
+<details>
+ <summary><code>GET</code> <code>api/v1/organizer_profiles/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | -|  -| --   | -  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `[{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer}]`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                                                      |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+#### Getting organizer profile by id
+
+<details>
+ <summary><code>GET</code>  <code>api/v1/organizer_profiles/</code> <code><b>{id}/</b></code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | id|  path| integer   | id of organizer profile  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                 | `{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer}`       |
+> | `400x`         | `application/json`                | `{"detail": string}`                                                                   |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+#### Updating organizer profiles
+
+<details>
+ <summary><code>PUT</code>  <code>api/v1/organizer_profiles/</code> <code><b>{id}/</b></code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | telegram_id|  path| integer   | telegram_id of organizer profile  |
+> | master_index|  request_body| decimal   | avg index of both engager and organizer index of the organizer profile  |
+> | engager_index|  request_body| decimal   | engager index of the organizer profile  |
+> | organizer_index|  request_body| decimal   | organizer index of the organizer profile  |
+> | events_organized|  request_body| integer   | events organized  |
+> | games_organized| request_body| integer  | games organized |
+> | meetings_organized|  request_body| integer   | meetings organized  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                               |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+#### Creating organizer profile
+
+<details>
+ <summary><code>POST</code>  <code>api/v1/organizer_profiles/</code> <code><b>{id}/</b></code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | telegram_id|  request_body| integer   | telegram_id of organizer profile  |
+> | master_index|  request_body| decimal   | avg index of both engager and organizer index of the organizer profile  |
+> | engager_index|  request_body| decimal   | engager index of the organizer profile  |
+> | organizer_index|  request_body| decimal   | organizer index of the organizer profile  |
+> | events_organized|  request_body| integer   | events organized  |
+> | games_organized| request_body| integer  | games organized |
+> | meetings_organized|  request_body| integer   | meetings organized  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                               |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 ## Meetings
-#### Listing meetings
+#### Creating meeting
+
+<details>
+ <summary><code>POST</code>  <code>api/v1/meetings/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | name_field|  request_body| string| name of the meeting|
+> | type_field|  request_body| integer| type of the meeting (0 - game, 1 - event) |
+> | date|  request_body| date| date of the meeting|
+> | time|  request_body| time| time of the meeting|
+> | city|  request_body| string| city of the meeting|
+> | place|  request_body| string| place of the meeting|
+> | description|  request_body| string| description of the meeting|
+> | expired|  request_body| string| if the meeting expired|
+> | organizer|  request_body| integer| telegram id of the meeting's organizer|
+> | winner|  request_body| integer (optional)| telegram id of the game's winner|
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"id": integer, "photo": string, "name_field": string, "type_field": string, "date_time": data, "city": string, "place": string, "description": string, "expired": boolean, "organizer": integer, "winner": integer}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                                   |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+#### Listing meeting
 
 <details>
  <summary><code>GET</code>  <code>api/v1/meetings/</code></summary>
@@ -220,6 +384,34 @@
 
 ------------------------------------------------------------------------------------------
 ## Paricipants profiles
+#### Creating participant profile
+
+<details>
+ <summary><code>POST</code>  <code>api/v1/participants_profiles/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | telegram_id|  request_body| integer| telegram_id of the participant|
+> | events_visited|  request_body| integer| events visited count |
+> | games_visited|  request_body| integer| games visited count|
+> | meetings_visited|  request_body| integer| meetings visited count|
+> | wins|  request_body| integer| wins count|
+> | earned_coins|  request_body| integer| earned coins count|
+> | companies_bought|  request_body| integer| companies bought count|
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `[{"telegram_id": integer, "events_visited": integer, "games_visited": integer, "meetings_visited": integer, "wins": integer, "earned_coins": integer, "companies_bought": integer, "cards": array of integer}]`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                                   |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Listing participants profiles 
 
 <details>
@@ -317,6 +509,34 @@
 ------------------------------------------------------------------------------------------
 
 ## Regular profiles
+#### Creating regular profile
+
+<details>
+ <summary><code>POST</code>  <code>api/v1/participants_profiles/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | telegram_id|  request_body| integer| telegram_id of the regular profile|
+> | name_field|  request_body| string| name of the regular profile |
+> | biography|  request_body| string| biography of the regular profile|
+> | needs|  request_body| string| needs of the regular profile|
+> | skills| request_body| string| skills of the regular profile|
+> | avatar|  request_body| string| avatar photo bytes of the regular profile|
+> | contacts|  request_body| json| contacts key-value data of regular profile|
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `{"telegram_id": integer, "name_field": string, "biography": string, "needs": string, "skills": string, "avatar": string, "contacts": json, "contacts_allowed": array of integer}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`                                                                   |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Listing regular profiles
 
 <details>
