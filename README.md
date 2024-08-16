@@ -360,6 +360,27 @@
 
 ------------------------------------------------------------------------------------------
 
+#### Getting meeting's organizer
+
+<details>
+ <summary><code>GET</code>  <code>api/v1/meetings/</code> <code><b>{id}/</b></code> <code>organizer/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"telegram_id": integer, "master_index": decimal, "engager_index": decimal, "organizer_index": decimal, "events_organized": integer, "games_organized": integer, "meetings_organized": integer, "name_field": string, "photo": string}`                                |
+> | `400x`         | `application/json`                | `{"detail": string}`                                                      |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Getting meeting invite link by id
 
 <details>
