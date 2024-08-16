@@ -336,6 +336,30 @@
 
 ------------------------------------------------------------------------------------------
 
+#### Listing meeting's participants
+
+<details>
+ <summary><code>GET</code>  <code>api/v1/meetings/</code> <code><b>{id}/</b></code> <code>participants/</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | page|  query string| integer| page to list|
+
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `[{"telegram_id": integer, "events_visited": integer, "games_visited": integer, "meetings_visited": integer, "wins": integer, "earned_coins": integer, "companies_bought": integer, "cards": array of integer, "name_field": string, "photo": string}]`                                |
+> | `400x`         | `application/json`                | `{"detail": string}`                                                      |
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Getting meeting invite link by id
 
 <details>
