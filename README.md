@@ -630,6 +630,30 @@
 
 ------------------------------------------------------------------------------------------
 
+#### Getting self regular profile
+
+<details>
+ <summary><code>GET</code>  <code>api/v1/regular_profiles/me</code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | -|  -| -| -|
+
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"telegram_id": integer, "name_field": string, "biography": string, "needs": string, "skills": string, "avatar": string, "contacts": json, "contacts_allowed": array of integer}`                                |
+>| `400x`         | `application/json`                | `{"detail": string}`          
+
+</details>
+
+------------------------------------------------------------------------------------------
+
 #### Geeting regular profile by id
 
 <details>
