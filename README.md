@@ -633,7 +633,7 @@
 #### Getting self regular profile
 
 <details>
- <summary><code>GET</code>  <code>api/v1/regular_profiles/me</code> </summary>
+ <summary><code>GET</code>  <code>api/v1/regular_profiles/me/</code> </summary>
 
 ##### Parameters
 
